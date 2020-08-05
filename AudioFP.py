@@ -86,7 +86,7 @@ class AudioFP():
                 print('Not saving anything')
         elif audio_type == 's':
             objname = input('Enter the filename (excluding the extention) where the fingerprint is saved: ')
-            objname = os.getcwd() + 'audio-fingerprinting/songs/' + objname + '.pkl'
+            objname = os.getcwd() + '/audio-fingerprinting/songs/' + objname + '.pkl'
             with open(objname, 'rb') as inputobj:
                 data = pickle.load(inputobj)
                 self.songname = data['songname']
@@ -109,7 +109,7 @@ class AudioFP():
     def read_audiofile(self, plot, filename):
         songdata = []  # Empty list for holding audio data
         channels = []  # Empty list to hold data from separate channels
-        filename = os.getcwd() + 'audio-fingerprinting/songs/' + filename
+        filename = os.getcwd() + '/audio-fingerprinting/songs/' + filename
         audiofile = pydub.AudioSegment.from_file(filename + '.mp3')
         self.songname = os.path.split(filename)[1]
         songdata = np.frombuffer(audiofile._data, np.int16)
@@ -190,7 +190,7 @@ class AudioFP():
     
     # Save the AudioFP object to file for later use
     def save_fingerprint(self):
-        filename = os.getcwd() + 'audio-fingerprinting/songs/' + self.songname + '.pkl'
+        filename = os.getcwd() + '/audio-fingerprinting/songs/' + self.songname + '.pkl'
         obj_dict = {'songname': self.songname, 'fingerprint': self.fingerprint, 'framerate': self.framerate}
         print('Saving the fingerprint for:', self.songname)
         with open(filename, 'wb') as output:  # Overwrites any existing file.
