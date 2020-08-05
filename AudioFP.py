@@ -3,8 +3,7 @@ import pydub
 import scipy.signal 
 import skimage.feature 
 import datasketch 
-from bokeh.io import show, output_notebook
-from bokeh.plotting import figure 
+from bokeh.plotting import figure, show
 import pyaudio
 import warnings
 import sys
@@ -77,7 +76,6 @@ class AudioFP():
             else:
                 plot = False
             channels, self.framerate = self.read_audiofile(plot, filename)
-            output_notebook()
             f, t, sgram = self.generate_spectrogram(plot, channels, self.framerate)
             fp, tp, peaks = self.find_peaks(plot, f, t, sgram)
             self.generate_fingerprint(plot, fp, tp, peaks)
