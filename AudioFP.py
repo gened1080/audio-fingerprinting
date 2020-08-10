@@ -110,6 +110,7 @@ class AudioFP():
         channels = []  # Empty list to hold data from separate channels
         filename = os.getcwd() + '/audio-fingerprinting/songs/' + filename
         audiofile = pydub.AudioSegment.from_file(filename + '.mp3')
+        audiofile = audiofile[:20000].fade_out(1000)  # keeping only first 20s and adding fade out (to reduce RAM requirements)
         self.songname = os.path.split(filename)[1]
         songdata = np.frombuffer(audiofile._data, np.int16)
         for chn in range(audiofile.channels):
