@@ -54,7 +54,7 @@ class AudioFP():
 
     def __init__(self, process='m'):
         self.songname = ''
-        self.fingerprint = datasketch.MinHash(num_perm=1024)
+        self.fingerprint = datasketch.MinHash(num_perm=512)
         self.framerate = []
         if process == 'a':
             self.ask_user()
