@@ -9,7 +9,7 @@ import warnings
 import sys
 import pickle 
 import os
-
+import pyhash
 
 # Parameters for tuning the Audiofingerprinting algorithm
 
@@ -54,7 +54,8 @@ class AudioFP():
 
     def __init__(self, process='m'):
         self.songname = ''
-        self.fingerprint = datasketch.MinHash(num_perm=256)
+        hasher = pyhash.farm_32()
+        self.fingerprint = datasketch.MinHash(num_perm=512, hashfunc=hasher)
         self.framerate = []
         if process == 'a':
             self.ask_user()
