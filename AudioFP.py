@@ -213,7 +213,7 @@ def compare_fingerprints(s1, s2):
         print('{} and {} are different'.format(s1.songname, s2.songname))
         print('Jaccard similarity = ', jac_sim)
         
-def calc_jaccard(s1, s2)
+def calc_jaccard(s1, s2):
     s1_size = s1.fingerprint.count()
     s2_size = s2.fingerprint.count()
     union_s = s1.fingerprint.copy()
