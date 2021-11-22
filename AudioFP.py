@@ -215,13 +215,14 @@ def compare_fingerprints(s1, s2):
         print('Jaccard similarity = ', jac_sim)
         
 def calc_jaccard(s1, s2):
-    s1_size = s1.fingerprint.count()
-    s2_size = s2.fingerprint.count()
-    union_s = s1.fingerprint.copy()
-    union_s.merge(s2.fingerprint)
-    union = union_s.count()
-    inter = s1_size + s2_size - union
-    jac_sim = inter / union
+#     s1_size = s1.fingerprint.count()
+#     s2_size = s2.fingerprint.count()
+#     union_s = s1.fingerprint.copy()
+#     union_s.merge(s2.fingerprint)
+#     union = union_s.count()
+#     inter = s1_size + s2_size - union
+#     jac_sim = inter / union
+    jac_sim = s1.fingerprint.jaccard(s2.fingerprint)
     return jac_sim
         
 # Add Gaussian white noise to a signal
