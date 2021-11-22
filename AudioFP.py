@@ -199,14 +199,7 @@ class AudioFP():
             
 # Compare fingerprints of two songs 
 def compare_fingerprints(s1, s2):
-#     jac_sim = s1.fingerprint.jaccard(s2.fingerprint)
-    s1_size = s1.fingerprint.count()
-    s2_size = s2.fingerprint.count()
-    union_s = s1.fingerprint.copy()
-    union_s.merge(s2.fingerprint)
-    union = union_s.count()
-    inter = s1_size + s2_size - union
-    jac_sim = inter / union
+    jac_sim = calc_jaccard(s1, s2)
     if jac_sim >= 0.9:
         print('{} and {} are identical!'.format(s1.songname, s2.songname))
         print('Jaccard similarity = ', jac_sim)
@@ -219,6 +212,16 @@ def compare_fingerprints(s1, s2):
     else:
         print('{} and {} are different'.format(s1.songname, s2.songname))
         print('Jaccard similarity = ', jac_sim)
+        
+def calc_jaccard(s1, s2)
+    s1_size = s1.fingerprint.count()
+    s2_size = s2.fingerprint.count()
+    union_s = s1.fingerprint.copy()
+    union_s.merge(s2.fingerprint)
+    union = union_s.count()
+    inter = s1_size + s2_size - union
+    jac_sim = inter / union
+    return jac_sim
         
 # Add Gaussian white noise to a signal
 def add_noise(signal, framerate):
