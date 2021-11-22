@@ -214,8 +214,8 @@ def compare_fingerprints(s1, s2):
         print('Jaccard similarity = ', jac_sim)
         
 def calc_jaccard(s1, s2):
-    inter = len(s1.fingerprint & s2.fingerprint)
-    union = len(s1.fingerprint | s2.fingerprint)
+    inter = len(set(s1.fingerprint) & set(s2.fingerprint))
+    union = len(set(s1.fingerprint) | set(s2.fingerprint))
 #     s1_size = s1.fingerprint.count()
 #     s2_size = s2.fingerprint.count()
 #     union_s = s1.fingerprint.copy()
