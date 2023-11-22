@@ -122,7 +122,7 @@ class AudioFP():
 #         channels = channels[:int(2 * len(channels) / 3)]
         # Plot time signal
         if plot:
-            p1 = figure(plot_width=900, plot_height=500, title='Audio Signal', 
+            p1 = figure(width=900, height=500, title='Audio Signal', 
                         x_axis_label='Time (s)', y_axis_label='Amplitude (arb. units)')
             time = np.linspace(0, len(channels)/framerate, len(channels))
             p1.line(time[0::1000], channels[0::1000])
@@ -140,7 +140,7 @@ class AudioFP():
         sgram[sgram == -np.inf] = 0  # replace infs with zeros
         # Plot Spectrogram
         if plot:
-            p2 = figure(plot_width=900, plot_height=500, title='Spectrogram',
+            p2 = figure(width=900, height=500, title='Spectrogram',
                         x_axis_label='Time (s)', y_axis_label='Frequency (Hz)',
                         x_range=(min(t), max(t)), y_range=(min(f), max(f)))
             p2.image([sgram[::2, ::2]], x=min(t), y=min(f), 
@@ -158,7 +158,7 @@ class AudioFP():
         fp = f[coordinates[:, 0]]
         # Plot the peaks detected on the spectrogram
         if plot:
-            p3 = figure(plot_width=900, plot_height=500, title='Spectrogram with Peaks',
+            p3 = figure(width=900, height=500, title='Spectrogram with Peaks',
                         x_axis_label='Time (s)', y_axis_label='Frequency (Hz)',
                         x_range=(min(t), max(t)), y_range=(min(f), max(f)))
             p3.image([sgram[::2, ::2]], x=min(t), y=min(f), 
