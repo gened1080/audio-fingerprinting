@@ -9,7 +9,7 @@ import warnings
 import sys
 import pickle 
 import os
-import pyhash
+# import pyhash
 
 # Parameters for tuning the Audiofingerprinting algorithm
 
