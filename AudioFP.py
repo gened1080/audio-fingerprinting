@@ -147,7 +147,7 @@ class AudioFP():
         
     # Find peaks in the spectrogram using image processing
     def find_peaks(self, plot, f, t, sgram):
-        coordinates = skimage.feature.peak_local_max(sgram, min_distance=min_peak_sep, indices=True,
+        coordinates = skimage.feature.peak_local_max(sgram, min_distance=min_peak_sep, 
                                      threshold_abs=min_peak_amp)
         
         peaks = sgram[coordinates[:, 0], coordinates[:, 1]]
